@@ -1,0 +1,17 @@
+<ng-container *ngIf="showAllFlows">
+  <div class="flows">
+    <div class="item" *ngFor="let item of flows">
+      <input
+        (change)="onFlowChange(item)"
+        type="radio"
+        id="option-{{ item }}"
+        name="nextFlow"
+        [(ngModel)]="flow"
+        value="{{ item }}"
+      />
+      <label for="option-{{ item }}">
+        <span>{{ item | translate }}</span>
+      </label>
+    </div>
+  </div>
+</ng-container>

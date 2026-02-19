@@ -1,0 +1,9 @@
+<div class="modal-body">
+    {{ (initialParams.content ) }}
+    <strong *ngIf="initialParams?.name">{{ initialParams.name }}?</strong>
+</div>
+
+<div class="modal-footer ">
+    <button type="button" class="btn btn-primary " (click)="confirm()">{{ initialParams.buttons.messages.yesButton }}</button>
+    <button type="button" class="btn btn-danger" (click)="decline()">{{initialParams.buttons.messages.noButton }}</button>
+</div>

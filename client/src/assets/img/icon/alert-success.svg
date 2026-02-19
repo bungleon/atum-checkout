@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="26px" viewBox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Banking-/-Send-Money" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="sendMoney.01.03---Success" transform="translate(-576.000000, -31.000000)">
+            <g id="Group-8" transform="translate(561.000000, 16.000000)">
+                <g id="Group" transform="translate(16.000000, 16.000000)">
+                    <circle id="Oval-Copy" stroke="#34D183" stroke-width="1.28571429" fill="#34D183" cx="12" cy="12" r="12"></circle>
+                    <g id="check-small" transform="translate(6.857143, 8.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                        <path d="M3.36734694,7.28571429 C3.16530612,7.28571429 3.03061224,7.21285714 2.89591837,7.06714286 L0.202040816,4.15285714 C-0.0673469388,3.86142857 -0.0673469388,3.42428571 0.202040816,3.13285714 C0.471428571,2.84142857 0.875510204,2.84142857 1.14489796,3.13285714 L3.36734694,5.53714286 L8.28367347,0.218571429 C8.55306122,-0.0728571429 8.95714286,-0.0728571429 9.22653061,0.218571429 C9.49591837,0.51 9.49591837,0.947142857 9.22653061,1.23857143 L3.83877551,7.06714286 C3.70408163,7.21285714 3.56938776,7.28571429 3.36734694,7.28571429 Z" id="Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

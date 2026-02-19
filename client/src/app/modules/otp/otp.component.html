@@ -1,0 +1,36 @@
+<app-page-title></app-page-title>
+
+<div *ngIf="loading" class="loading-pContent" [loading]="loading"></div>
+
+<app-mobile-approve
+  *ngIf="
+    this.otpType === 'MOBILE_APPROVE_LOGIN' ||
+    this.otpType === 'MOBILE_APPROVE_TRANSFER'
+  "
+  [transactionData]="transactionData"
+  [otpData]="otpData"
+></app-mobile-approve>
+
+<app-sms-approve
+  *ngIf="this.otpType === 'SMS_LOGIN'"
+  [otpType]="'SMS_LOGIN'"
+  [otpData]="this.otpData"
+  [transactionData]="transactionData"
+>
+</app-sms-approve>
+
+<app-sms-approve
+  *ngIf="this.otpType === 'SMS_TRANSFER'"
+  [otpType]="'SMS_TRANSFER'"
+  [otpData]="this.otpData"
+  [transactionData]="transactionData"
+>
+</app-sms-approve>
+
+<app-email-otp
+  *ngIf="this.otpType === 'EMAIL_LOGIN'"
+  [otpType]="'EMAIL_LOGIN'"
+  [otpData]="this.otpData"
+  [transactionData]="transactionData"
+>
+</app-email-otp>

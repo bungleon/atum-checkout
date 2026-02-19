@@ -1,0 +1,38 @@
+.alertbox {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin: 75px 0;
+  padding: 0;
+}
+
+.alertbox h3 {
+  font-size: 20px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  margin-bottom: 0;
+}
+.alertbox.success h3 {
+  color: #34d183;
+}
+.alertbox.error h3 {
+  color: #fc2a44;
+}
+.alertbox.warning h3 {
+  color: #fc2a44;
+}
+
+.alertbox p {
+  font-size: 16px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.75;
+  letter-spacing: normal;
+  text-align: center;
+  color: #3e3e3f;
+}

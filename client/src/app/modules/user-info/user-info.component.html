@@ -1,0 +1,91 @@
+<app-page-title></app-page-title>
+<form class="form" (ngSubmit)="onSubmit()" #f="ngForm" novalidate>
+  <div class="loading-pContent" [loading]="this.loading">
+    <ng-container *ngIf="!this.loading">
+      <div class="pContent padding">
+        <app-next-flow></app-next-flow>
+        <div class="alertText font-semibold mb-4">
+          {{ userInfo.messages.userInfoMessage }}
+        </div>
+        <div class="form-group" style="position: relative">
+          <label style="text-transform: capitalize"
+          >{{ userInfo.messages.userInfoFullName }}&nbsp;
+            <span class="text-danger">*</span></label
+          >
+          <input
+            class="form-control"
+            type="text"
+            autofocus
+            name="customerName"
+            #customerName="ngModel"
+            [(ngModel)]="formParams.customerName"
+            required
+            [class.is-invalid]="customerName.touched && customerName.errors"
+            appTrim
+          />
+          <ng-container *ngIf="userInfo[1]">
+            <a
+              (click)="selectAccount()"
+              class="btn btn-sm btn-primary text-white"
+              style="position: absolute; top: 37px; right: 10px"
+            >
+              {{ "user_info.select" | translate }}
+            </a>
+          </ng-container>
+        </div>
+
+        <div class="form-group">
+          <label style="text-transform: capitalize"
+          >{{ userInfo.messages.userInfoAccountNumber }}&nbsp;
+            <span class="text-danger">*</span></label
+          >
+          <input
+            allowNumbersOnly
+            class="form-control"
+            type="text"
+            name="accountNumber"
+            #accountNumber="ngModel"
+            [(ngModel)]="formParams.accountNumber"
+            required
+            minlength="1"
+            appTrim
+            [class.is-invalid]="accountNumber.touched && accountNumber.errors"
+          />
+        </div>
+
+        <div class="form-group">
+          <label style="text-transform: capitalize"
+          >{{ userInfo.messages.userInfoPhoneNumber }}&nbsp;
+            <span class="text-danger">*</span>
+          </label>
+          <input
+            class="form-control"
+            type="text"
+            name="phoneNumber"
+            #phoneNumber="ngModel"
+            [(ngModel)]="formParams.phoneNumber"
+            required
+          />
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <div class="pButton p-4">
+    <button
+      class="btn btn-primary radiused d-flex align-center justify-center btn-custom"
+      type="submit"
+      [disabled]="f.invalid || this.loading"
+    >
+      <span>{{ continueButton }}</span>
+      <i></i>
+    </button>
+    <button
+      class="btn btn-link text-muted btn-sm"
+      style="font-size: 14px"
+      (click)="backToMerchant()"
+      type="button"
+    >
+      {{ cancelButton }}
+    </button>
+  </div>
+</form>

@@ -1,0 +1,87 @@
+<app-page-title></app-page-title>
+<form class="form" (ngSubmit)="onSubmit()" #f="ngForm" novalidate>
+  <div class="loading-pContent" [loading]="this.loading['FORM']">
+    <ng-container *ngIf="!this.loading['FORM']">
+      <div class="pContent padding" style="padding-bottom: 0">
+        <app-next-flow></app-next-flow>
+        <div class="alertText mb-4 font-semibold">
+          {{ loginInputs.messages.loginMessage }}
+        </div>
+        <ng-container *ngIf="!isAreaCode">
+          <ng-container *ngFor="let item of this.loginInputs.inputs">
+            <div class="form-group">
+              <label style="text-transform: capitalize"
+                >{{ item.message  }}&nbsp;*</label
+              >
+              <input
+                class="form-control"
+                id="{{ item.name }}"
+                type="{{ item.type }}"
+                name="{{ item.name }}"
+                [(ngModel)]="formParams[item.name]"
+                [disabled]="this.loading['SUBMIT']"
+                required
+              />
+            </div>
+          </ng-container>
+        </ng-container>
+
+        <ng-container *ngIf="isAreaCode">
+          <ng-container *ngFor="let item of this.loginInputs">
+            <ng-container *ngIf="item.name === 'phone'">
+              <div class="form-group">
+                <app-phone
+                  [name]="item.name"
+                  [label]="item.name"
+                  name="{{ item.name }}"
+                  [(ngModel)]="formParams[item.name]"
+                  required="true"
+                  minlength="9"
+                  style="margin-bottom: 1rem"
+                  [disabled]="this.loading['SUBMIT']"
+                ></app-phone>
+              </div>
+            </ng-container>
+            <ng-container
+              *ngIf="item.name !== 'phone' && item.name !== 'areaCode'"
+            >
+              <div class="form-group">
+                <label style="text-transform: capitalize"
+                  >{{ item.name  }}&nbsp;*</label
+                >
+                <input
+                  class="form-control"
+                  id="{{ item.name }}"
+                  type="{{ item.type }}"
+                  name="{{ item.name }}"
+                  [(ngModel)]="formParams[item.name]"
+                  required
+                  [disabled]="this.loading['SUBMIT']"
+                />
+              </div>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+      </div>
+    </ng-container>
+  </div>
+  <div class="pButton p-4" *ngIf="!this.loading['FORM']">
+    <button
+      class="btn btn-primary radiused btn-custom"
+      type="submit"
+      [disabled]="f.invalid || this.loading['SUBMIT']"
+    >
+      <span>{{ loginInputs.messages.continueButton }}</span>
+      <i></i>
+    </button>
+    <button
+      class="btn btn-link btn-sm text-muted"
+      style="font-size: 14px"
+      (click)="backToMerchant()"
+      type="button"
+    >
+      {{ loginInputs.messages.cancelTransaction }}
+    </button>
+  </div>
+</form>
+

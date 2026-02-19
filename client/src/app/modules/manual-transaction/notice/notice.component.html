@@ -1,0 +1,87 @@
+<ng-container
+  *ngIf="
+    formData.paymentType &&
+    (formData.paymentType !== 'ANINDA' ||
+      formData.paymentType !== 'ANINDA_FLEXI')
+  "
+>
+  <div class="loading-pContent">
+    <div class="pContent padding">
+      <app-next-flow></app-next-flow>
+      <h1>
+        {{ "manual_transfer.header" | translate }}
+      </h1>
+      <ng-container *ngIf="this.formData?.referenceNo">
+        <p
+          class="alertText mb-2"
+          [innerHTML]="'manual_transfer.notice_1' | translate"
+        ></p>
+      </ng-container>
+      <ng-container *ngIf="!this.formData?.referenceNo">
+        <p
+          class="alertText mb-2"
+          [innerHTML]="'papara.notice_3' | translate"
+        ></p>
+      </ng-container>
+      <p
+        class="alertText mb-2"
+        [innerHTML]="'manual_transfer.notice_2' | translate"
+      ></p>
+    </div>
+  </div>
+  <div class="pButton p-4">
+    <button
+      class="btn btn-primary radiused"
+      (click)="eSubmit.next(true)"
+      type="button"
+    >
+      {{ "manual_transfer.continue" | translate }}
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        aria-hidden="true"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M14 5l7 7m0 0l-7 7m7-7H3"
+        ></path>
+      </svg>
+    </button>
+  </div>
+</ng-container>
+
+<ng-container
+  *ngIf="
+    formData.paymentType === 'ANINDA' || formData.paymentType === 'ANINDA_FLEXI'
+  "
+>
+  <div class="noticeAninda">
+    <div class="formAmount">
+      <div class="floatAmount">
+        <label>{{ "Yatırım tutarı" | translate }}:</label>
+        <span>
+          <b>{{ formData.amount }}</b>
+          <span style="color: #a9a9a9">
+            {{ formData.currency }}
+          </span>
+        </span>
+      </div>
+      <button class="btn" (click)="eSubmit.next(true)" type="button">
+        {{ "DEVAM ET" | translate }}
+      </button>
+    </div>
+
+    <div class="alertAninda">
+      Girebileceğiniz yatırım limitiniz en az
+      <b class="text-danger">50,00 TL</b> en fazla
+      <b class="text-danger">100.000,00 TL</b> arasında olabilir.
+      <br />
+      Yatırım miktarınızı girdikten sonra açılacak olan ekranda sizden istenen
+      bilgileri giriniz.
+    </div>
+  </div>
+</ng-container>

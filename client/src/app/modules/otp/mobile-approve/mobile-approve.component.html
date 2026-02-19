@@ -1,0 +1,53 @@
+<div class="pContent padding text-center">
+    <app-next-flow></app-next-flow>
+    <div class="text-center">
+        <img class="img-responsive page-icon mt-3 mb-3" src="assets/img/icon/sms-otp.svg" alt="mobile otp" />
+    </div>
+
+    <h3 style="margin-top: 2rem">
+        {{this.otpData.messages.mailApproveHeader}}
+    </h3>
+
+    <div class="alertText mt-3 mb-3 font-semibold">
+        <span >{{
+            this.otpData.messages.mailApproveMessage
+            }}</span>
+    </div>
+
+    <div class="d-flex justify-center" style="padding: 1rem">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 45 45" stroke="#9dd3ff">
+            <g fill="none" fill-rule="evenodd" transform="translate(1 1)" stroke-width="2">
+                <circle cx="22" cy="22" r="6" stroke-opacity="0">
+                    <animate attributeName="r" begin="1.5s" dur="3s" values="6;22" calcMode="linear"
+                        repeatCount="indefinite" />
+                    <animate attributeName="stroke-opacity" begin="1.5s" dur="3s" values="1;0" calcMode="linear"
+                        repeatCount="indefinite" />
+                    <animate attributeName="stroke-width" begin="1.5s" dur="3s" values="2;0" calcMode="linear"
+                        repeatCount="indefinite" />
+                </circle>
+                <circle cx="22" cy="22" r="6" stroke-opacity="0">
+                    <animate attributeName="r" begin="3s" dur="3s" values="6;22" calcMode="linear"
+                        repeatCount="indefinite" />
+                    <animate attributeName="stroke-opacity" begin="3s" dur="3s" values="1;0" calcMode="linear"
+                        repeatCount="indefinite" />
+                    <animate attributeName="stroke-width" begin="3s" dur="3s" values="2;0" calcMode="linear"
+                        repeatCount="indefinite" />
+                </circle>
+                <circle cx="22" cy="22" r="8">
+                    <animate attributeName="r" begin="0s" dur="1.5s" values="6;1;2;3;4;5;6" calcMode="linear"
+                        repeatCount="indefinite" />
+                </circle>
+            </g>
+        </svg>
+    </div>
+
+  <button
+    class="btn btn-link btn-sm text-muted"
+    style="font-size: 14px"
+    (click)="backToMerchant()"
+    type="button"
+  >
+    {{ otpData.messages.cancelTransaction }}
+  </button>
+
+</div>

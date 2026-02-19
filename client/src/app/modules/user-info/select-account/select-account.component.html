@@ -1,0 +1,108 @@
+<div class="modal-header">
+  <h5 class="modal-title pull-left">
+    {{ "user_info.select_account_header" | translate }}
+  </h5>
+  <button
+    type="button"
+    class="btn-close close pull-right"
+    aria-label="Close"
+    (click)="this.bsModalRef.hide()"
+  >
+    <span aria-hidden="true" class="visually-hidden">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+      >
+        <g
+          stroke="#3E3E3F"
+          stroke-width="1.5"
+          fill="none"
+          fill-rule="evenodd"
+          stroke-linecap="square"
+        >
+          <path d="m1.28 1.28 13.305 13.305M14.72 1.28 1.415 14.585" />
+        </g>
+      </svg>
+    </span>
+  </button>
+</div>
+<div class="modal-body" style="padding: 0.5rem">
+  <div class="radioList">
+    <div class="item" *ngFor="let item of accounts">
+      <input
+        type="radio"
+        id="option-{{ item['id'] }}"
+        name="account"
+        [(ngModel)]="accountId"
+        value="{{ item['id'] }}"
+      />
+      <label for="option-{{ item['id'] }}">
+        <div class="d-flex" style="justify-content: space-between">
+          <span class="d-flex align-center">
+            <i
+              class="ph-user"
+              style="margin-right: 0.5rem; color: #3570b0; font-size: 16px"
+            ></i>
+            <span>
+              {{ "user_info.account" | translate }}
+            </span>
+          </span>
+          <span style="color: #1a1b1c; font-weight: 500">
+            {{ item["customerName"] }}
+          </span>
+        </div>
+        <div class="d-flex" style="justify-content: space-between">
+          <span class="d-flex align-center">
+            <i
+              class="ph-credit-card"
+              style="margin-right: 0.5rem; color: #3570b0; font-size: 16px"
+            ></i>
+            <span>
+              {{ "user_info.account_number_2" | translate }}
+            </span>
+          </span>
+          <ng-container *ngIf="transactionData?.paymentType !== 'ANUBIS'">
+            <span style="color: #1a1b1c; font-weight: 500; font-size: 13px">{{
+              item["accountNumber"]
+            }}</span>
+          </ng-container>
+          <ng-container *ngIf="transactionData?.paymentType === 'ANUBIS'">
+            <span style="color: #1a1b1c; font-weight: 500; font-size: 13px">{{
+              item["accountNumber"] | iban
+            }}</span>
+          </ng-container>
+        </div>
+        <ng-container *ngIf="this.transactionData?.paymentType !== 'PAPARA'">
+          <div class="d-flex" style="justify-content: space-between">
+            <span class="d-flex align-center">
+              <i
+                class="ph-device-mobile"
+                style="margin-right: 0.5rem; color: #3570b0; font-size: 16px"
+              ></i>
+              <span>
+                {{ "user_info.mobile_no" | translate }}
+              </span>
+            </span>
+            <span style="color: #1a1b1c; font-weight: 500">{{
+              item["phoneNumber"]
+            }}</span>
+          </div>
+        </ng-container>
+      </label>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button
+    class="btn btn-primary btn-block radiused btn-custom"
+    type="submit"
+    [disabled]="!this.accountId"
+    style="padding: 12px 8px"
+    (click)="onSubmit()"
+  >
+    <span>{{ "user_info.select_account_button" | translate }}</span>
+    <i></i>
+  </button>
+</div>

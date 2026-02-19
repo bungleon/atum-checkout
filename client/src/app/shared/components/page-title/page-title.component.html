@@ -1,0 +1,152 @@
+<ng-container
+  *ngIf="
+    transactionData?.paymentType !== 'ANINDA' &&
+    transactionData?.paymentType !== 'ANINDA_FLEXI'
+  "
+>
+  <div class="pageTitle">
+    <ng-container *ngIf="transactionData?.bicCode; else logoTpl">
+      <ng-container [ngSwitch]="transactionData?.bicCode">
+        <ng-container *ngSwitchCase="'FUPS'">
+          <img
+            style="width: 40px"
+            src="assets/img/banks/fups.png"
+            alt="fups logo"
+          />
+        </ng-container>
+        <ng-container *ngSwitchCase="'PAPARA'">
+          <img
+            class="img-responsive"
+            src="assets/img/banks/papara.svg"
+            alt="papara logo"
+          />
+        </ng-container>
+        <ng-container *ngSwitchCase="'PEPPARA'">
+          <img
+            class="img-responsive"
+            src="assets/img/banks/peppara.svg"
+            alt="peppara logo"
+          />
+        </ng-container>
+        <ng-container *ngSwitchCase="'PARAZULA'">
+          <img
+            style="width: 80px"
+            class="img-responsive"
+            src="assets/img/banks/parazula.png"
+            alt="parazula logo"
+          />
+        </ng-container>
+        <ng-container *ngSwitchCase="'MEFETE'">
+          <img
+            style="width: 80px"
+            class="img-responsive"
+            src="assets/img/banks/metefe.png"
+            alt="metefe logo"
+          />
+        </ng-container>
+        <ng-container *ngSwitchCase="'MONEYTOLIA'">
+          <img
+            style="width: 120px"
+            class="img-responsive"
+            src="assets/img/banks/moneytolia.svg"
+            alt="moneytolia logo"
+          />
+        </ng-container>
+        <ng-container *ngSwitchCase="'PAYFIX'">
+          <img
+            style="width: 60px"
+            class="img-responsive"
+            src="assets/img/banks/payfix.svg"
+            alt="payfix logo"
+          />
+        </ng-container>
+        <ng-container *ngSwitchCase="'ANUBIS'">
+          <img
+            style="width: 60px"
+            class="img-responsive"
+            src="assets/img/banks/ANUBIS.png"
+            alt="anubis logo"
+          />
+        </ng-container>
+        <ng-container *ngSwitchDefault>
+          <img
+            src="assets/img/banks/{{ transactionData.bicCode }}.png"
+            alt="{{ transactionData.bicCode }}"
+            class="bank-logo {{ transactionData.bicCode | lowercase }}"
+          />
+        </ng-container>
+      </ng-container>
+    </ng-container>
+
+    <ng-template #logoTpl>
+      <ng-container [ngSwitch]="transactionData?.paymentType">
+        <ng-container *ngSwitchCase="'FUPS'">
+          <img
+            style="width: 40px"
+            src="assets/img/banks/fups.png"
+            alt="fups logo"
+          />
+        </ng-container>
+        <ng-container *ngSwitchCase="'PAPARA'">
+          <img
+            class="img-responsive"
+            src="assets/img/banks/papara.svg"
+            alt="papara logo"
+          />
+        </ng-container>
+        <ng-container *ngSwitchCase="'PEPPARA'">
+          <img
+            class="img-responsive"
+            src="assets/img/banks/peppara.svg"
+            alt="papara logo"
+          />
+        </ng-container>
+        <ng-container *ngSwitchCase="'PARAZULA'">
+          <img
+            style="width: 80px"
+            class="img-responsive"
+            src="assets/img/banks/parazula.png"
+            alt="papara logo"
+          />
+        </ng-container>
+        <ng-container *ngSwitchCase="'MEFETE'">
+          <img
+            style="width: 80px"
+            class="img-responsive"
+            src="assets/img/banks/metefe.png"
+            alt="papara logo"
+          />
+        </ng-container>
+        <ng-container *ngSwitchCase="'MONEYTOLIA'">
+          <img
+            style="width: 120px"
+            class="img-responsive"
+            src="assets/img/banks/moneytolia.svg"
+            alt="moneytolia logo"
+          />
+        </ng-container>
+        <ng-container *ngSwitchCase="'PAYFIX'">
+          <img
+            style="width: 60px"
+            class="img-responsive"
+            src="assets/img/banks/payfix.svg"
+            alt="moneytolia logo"
+          />
+        </ng-container>
+        <ng-container *ngSwitchCase="'ANUBIS'">
+          <img
+            style="width: 60px"
+            class="img-responsive"
+            src="assets/img/banks/ANUBIS.png"
+            alt="anubis logo"
+          />
+        </ng-container>
+        <ng-container *ngSwitchDefault>
+          <span style="text-transform: uppercase">{{
+            transactionData?.paymentType
+          }}</span>
+        </ng-container>
+      </ng-container>
+    </ng-template>
+  </div>
+</ng-container>

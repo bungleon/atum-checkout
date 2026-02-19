@@ -1,0 +1,84 @@
+<div class="pContent">
+  <div style="padding: 24px 24px 0">
+    <app-next-flow></app-next-flow>
+  </div>
+  <div class="listedItem">
+    <div
+      class="item"
+      class="item cursor-copy"
+      ngxClipboard
+      [cbContent]="this.formData?.ownerName"
+      (cbOnSuccess)="alertService.setNotice('Copied', 'success')"
+    >
+      <strong>{{ formData.messages.manualTransferOwnerName }}</strong>
+      <p>
+        {{ this.formData?.ownerName }}
+        <img
+          style="width: 0.875rem; margin-left: 6px"
+          src="assets/img/copy.svg"
+          alt="Success"
+        />
+      </p>
+    </div>
+    <div
+      class="item cursor-copy"
+      ngxClipboard
+      [cbContent]="this.formData?.bankAccount"
+      (cbOnSuccess)="alertService.setNotice('Copied', 'success')"
+    >
+      <strong>{{ formData.messages.manualTransferAccount }}</strong>
+      <p>
+        {{ this.formData?.bankAccount }}
+        <img
+          style="width: 0.875rem; margin-left: 6px"
+          src="assets/img/copy.svg"
+          alt="Success"
+        />
+      </p>
+    </div>
+    <div
+      class="item cursor-copy"
+      ngxClipboard
+      [cbContent]="this.formData.referenceNo"
+      (cbOnSuccess)="alertService.setNotice('Copied', 'success')"
+    >
+      <strong>{{ formData.messages.manualTransferReference}}</strong>
+      <p>
+        <span>{{ this.formData?.referenceNo }}</span>
+        <img
+          style="width: 0.875rem; margin-left: 6px"
+          src="assets/img/copy-blue.svg"
+          alt="Success"
+        />
+      </p>
+    </div>
+    <div
+      class="alertText m-3"
+      style="color: #dc3545; font-weight: 600"
+      [innerHTML]="formData.messages.manualTransferWarning1"
+    ></div>
+    <div
+      class="alertText m-3"
+      [innerHTML]="formData.messages.manualTransferWarning2"
+    ></div>
+  </div>
+</div>
+
+<div class="pButton p-4">
+  <button
+    class="btn btn-payment-decline"
+    (click)="eCancel.next(true)"
+    type="button"
+    [disabled]="loading"
+  >
+    {{ formData.messages.cancelTransaction }}
+  </button>
+  <button
+    class="btn btn-primary radiused"
+    (click)="eSubmit.next(true)"
+    type="button"
+    [disabled]="loading"
+  >
+    {{ formData.messages.continueButton  }}
+  </button>
+</div>

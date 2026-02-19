@@ -1,0 +1,30 @@
+<app-page-title></app-page-title>
+<form class="form" (ngSubmit)="onSubmit()" #f="ngForm" novalidate>
+  <div class="pContent padding">
+    <app-next-flow></app-next-flow>
+    <div class="text-center mt-3 mb-2">
+      <img
+        style="width: 140px; height: 160px"
+        class="img-responsive"
+        src="assets/img/icon/email_verification.svg"
+        alt="email_verification"
+      />
+    </div>
+    <h5 class="text-center mb-3" style="font-weight: 600">
+      {{ "Lütfen girişinizi onaylayın!" }}
+    </h5>
+    <div class="alertText">
+      {{ "mail_approve_message" | translate }}
+    </div>
+  </div>
+  <div class="pButton p-4">
+    <button
+      class="btn btn-primary radiused btn-custom"
+      type="submit"
+      [disabled]="f.invalid || this.loading"
+    >
+      <span>{{ "mail_approve.button" | translate }}</span>
+      <i></i>
+    </button>
+  </div>
+</form>

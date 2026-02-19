@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="90px" height="64px" viewBox="0 0 90 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46 (44423) - http://www.bohemiancoding.com/sketch -->
+    <title>kredi karti</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Dashboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+        <g id="kredi-karti" stroke-width="2.8" stroke="#ED83FA">
+            <g id="Group-24" transform="translate(29.000000, 19.000000)">
+                <g id="shopping-24px-outline_credit-card">
+                    <path d="M0,6 L33,6" id="Shape"></path>
+                    <path d="M0,12 L33,12" id="Shape"></path>
+                    <path d="M30,27 L3,27 C1.3425,27 0,25.6575 0,24 L0,3 C0,1.3425 1.3425,0 3,0 L22.5,0 L30,0 C31.6575,0 33,1.3425 33,3 L33,24 C33,25.6575 31.6575,27 30,27 Z" id="Shape"></path>
+                    <path d="M6,19.5 L13.5,19.5" id="Shape"></path>
+                    <path d="M25.5,19.5 L27,19.5" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

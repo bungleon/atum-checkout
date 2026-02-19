@@ -1,0 +1,57 @@
+<label *ngIf="label" [for]="name" class="label"
+  >{{ "phone" | translate }}
+  <span *ngIf="!optional">&nbsp;*</span>
+</label>
+<div class="phone-container">
+  <input
+    type="tel"
+    required="true"
+    maxlength="12"
+    pattern="[0-9]*"
+    class="phone-input"
+    placeholder="{{ 'Phone Number' | translate }}"
+    name="phone_number"
+    (input)="updateValue($event)"
+    allowNumbersOnly
+    [(ngModel)]="params.phone_number"
+    #phone_number
+  />
+  <ng-select
+    class="phone-select"
+    [items]="countries"
+    bindLabel="name"
+    bindValue="dial_code"
+    [clearable]="false"
+    (ngModelChange)="onCountryChange($event)"
+    name="dial_code"
+    #dial_code="ngModel"
+    [(ngModel)]="params.dial_code"
+    [searchable]="false"
+    (close)="onClose()"
+  >
+    <ng-template ng-label-tmp let-item="item">
+      <div class="d-flex align-items-center" style="gap: 4px">
+        <span>{{ item.flag }} </span>
+        <span style="font-weight: 500">{{ item.dial_code }} </span>
+      </div>
+    </ng-template>
+    <ng-template ng-header-tmp>
+      <div class="custom-header">
+        <input
+          type="text"
+          class="search-input"
+          placeholder="Ara"
+          (input)="search($event)"
+          autofocus
+        />
+      </div>
+    </ng-template>
+    <ng-template ng-option-tmp let-item="item">
+      <div class="d-flex align-items-center" style="gap: 4px">
+        <span>{{ item.flag }}&nbsp;</span>
+        <span style="font-weight: 500">({{ item.dial_code }})&nbsp;&nbsp;</span>
+        <span class="text-capitalize">{{ item.name | translate }}</span>
+      </div>
+    </ng-template>
+  </ng-select>
+</div>

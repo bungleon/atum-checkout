@@ -1,0 +1,109 @@
+<div class="loading-pContent">
+  <div class="pContent padding">
+    <ng-container [ngSwitch]="type">
+      <ng-container *ngSwitchCase="'ERROR'">
+        <ng-container *ngTemplateOutlet="errorTpl"></ng-container>
+      </ng-container>
+      <ng-container *ngSwitchCase="'DECLINED'">
+        <ng-container *ngTemplateOutlet="declinedTpl"></ng-container>
+      </ng-container>
+      <ng-container *ngSwitchCase="'MANUAL_TRANSACTION_RESULT_DECLINED'">
+        <ng-container *ngTemplateOutlet="declinedTpl"></ng-container>
+      </ng-container>
+      <ng-container *ngSwitchCase="'MANUAL_TRANSACTION_RESULT_DONE'">
+        <ng-container *ngTemplateOutlet="successTpl"></ng-container>
+      </ng-container>
+      <ng-container *ngSwitchCase="'SUCCESS'">
+        <ng-container *ngTemplateOutlet="successTpl"></ng-container>
+      </ng-container>
+      <ng-container *ngSwitchCase="'MANUAL_CHECK'">
+        <ng-container *ngTemplateOutlet="manualCheckTpl"></ng-container>
+      </ng-container>
+      <ng-container *ngSwitchCase="'USER_CANCELLED'">
+        <ng-container *ngTemplateOutlet="userCancelledTpl"></ng-container>
+      </ng-container>
+    </ng-container>
+  </div>
+</div>
+<div class="pButton p-4" *ngIf="type !== 'MANUAL_CHECK'">
+  <button
+    class="btn btn-primary radiused"
+    (click)="backToMerchant()"
+    type="button"
+  >
+    {{ stateData.messages.resultButton }}
+  </button>
+</div>
+
+<ng-template #successTpl>
+  <div class="alertbox success">
+    <div class="icon">
+      <img src="assets/img/icon/success.png" alt="Success"/>
+    </div>
+    <h3>
+      {{ stateData.messages.resultHeader }}
+    </h3>
+    <p>
+      {{ stateData.messages.resultMessage }}
+    </p>
+  </div>
+</ng-template>
+
+<ng-template #errorTpl>
+  <div class="alertbox error">
+    <div class="icon">
+      <img src="assets/img/icon/error.png" alt="Error"/>
+    </div>
+    <h3>
+      {{ stateData.messages.resultHeader }}
+    </h3>
+    <p>
+      {{ stateData.messages.resultMessage }}
+    </p>
+  </div>
+</ng-template>
+
+<ng-template #declinedTpl>
+  <div class="alertbox error">
+    <div class="icon">
+      <img src="assets/img/icon/error.png" alt="Error"/>
+    </div>
+    <h3>
+      {{ stateData.messages.resultHeader }}
+    </h3>
+    <p>
+      {{ stateData.messages.resultMessage }}
+    </p>
+  </div>
+</ng-template>
+
+<ng-template #manualCheckTpl>
+  <div class="loading-pContent">
+    <div class="pContent padding">
+      <h3 style="text-align: center; margin-bottom: 1rem">
+        {{ stateData.messages.resultHeader }}
+      </h3>
+      <p style="text-align: center">
+        {{ stateData.messages.resultMessage }}
+      </p>
+      <div style="display: flex; justify-content: center; margin-top: 2rem">
+        <i class="loading-icon-2"></i>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<ng-template #userCancelledTpl>
+  <div class="loading-pContent">
+    <div class="pContent padding">
+      <h3 style="text-align: center; margin-bottom: 1rem">
+        {{ stateData.messages.resultHeader }}
+      </h3>
+      <p style="text-align: center">
+        {{ stateData.messages.resultMessage }}
+      </p>
+      <div style="display: flex; justify-content: center; margin-top: 2rem">
+        <i class="loading-icon-2"></i>
+      </div>
+    </div>
+  </div>
+</ng-template>

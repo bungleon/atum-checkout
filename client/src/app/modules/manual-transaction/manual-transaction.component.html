@@ -1,0 +1,20 @@
+<app-page-title></app-page-title>
+
+<div class="loading-pContent" style="min-height: 300px" [loading]="loading">
+  <ng-container *ngIf="!isNoticeConfirm && !loading">
+    <app-notice
+      [formData]="formData"
+      (eSubmit)="onNoticeConfirm()"
+    ></app-notice>
+  </ng-container>
+
+  <ng-container *ngIf="!loading">
+    <ng-container>
+      <app-default
+        [formData]="formData"
+        (eCancel)="onCancel()"
+        (eSubmit)="onApprove()"
+      ></app-default>
+    </ng-container>
+  </ng-container>
+</div>

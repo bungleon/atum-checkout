@@ -1,0 +1,42 @@
+<form class="form" (ngSubmit)="onSubmit()" #f="ngForm" novalidate>
+  <div class="pContent padding">
+    <app-next-flow></app-next-flow>
+    <div class="text-center">
+      <img
+        class="img-responsive page-icon mt-3 mb-3"
+        src="assets/img/icon/mail-otp.svg"
+        alt="mobile otp"
+      />
+    </div>
+
+    <div class="alertText mt-3 mb-3 font-semibold">
+      <span *ngIf="this.otpData?.message && this.otpData?.message !== ''">{{
+        this.otpData?.message
+      }}</span>
+      <span *ngIf="!this.otpData?.message || this.otpData?.message === ''">{{
+        "mail_otp_message" | translate
+      }}</span>
+    </div>
+    <div class="form-group">
+      <label>{{ "otp_code" | translate }}*</label>
+      <input
+        class="form-control"
+        type="text"
+        name="otp"
+        #otp="ngModel"
+        [(ngModel)]="formParams.otp"
+        required
+      />
+    </div>
+  </div>
+  <div class="pButton p-4">
+    <button
+      class="btn btn-primary radiused btn-custom"
+      type="submit"
+      [disabled]="f.invalid || this.loading"
+    >
+      <span>{{ "continue" | translate }}</span>
+      <i></i>
+    </button>
+  </div>
+</form>

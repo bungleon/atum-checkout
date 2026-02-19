@@ -1,0 +1,21 @@
+.pHeader.papara {
+  border-bottom: 6px solid;
+  border-image: linear-gradient(
+    90deg,
+    #cd525c 0%,
+    #b7406c 26%,
+    #a22f7f 61%,
+    #871e95 100%
+  );
+  border-image-slice: 1;
+}
+
+.instantLogo {
+  width: 120px;
+}
+
+.instant {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  padding-inline: 1rem;
+  padding-block: 1.5rem 1rem;
+}

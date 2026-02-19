@@ -1,0 +1,49 @@
+.pContent {
+    overflow: visible !important;
+    min-height: 425px;
+    //height: calc(100vh - 350px);
+}
+
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
+    font-size: 13px;
+    color: #000;
+}
+
+
+@media only screen and (max-width: 767px) {
+    .pButton {
+        position: unset;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        top: auto;
+        z-index: 1040;
+    }
+}
+
+.info-area {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 0;
+    color: #5D5D5D;
+    font-size: 14px;
+    font-weight: 500;
+
+    div {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    a {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

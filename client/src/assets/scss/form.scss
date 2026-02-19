@@ -1,0 +1,64 @@
+.form {
+}
+
+.form .form-group {
+  margin-bottom: 1rem;
+}
+
+.form .form-group:last-child {
+  margin-bottom: 0;
+}
+
+.form .form-group label {
+  display: block;
+  text-transform: capitalize;
+  margin-bottom: 5px;
+  font-size: 15px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.47;
+  letter-spacing: normal;
+  color: #303234;
+}
+
+.form .form-group .form-control {
+  padding-bottom: 8px;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 9%);
+  display: block;
+  width: 100%;
+  font-size: 1rem;
+  line-height: 1.5;
+  background-color: #fff;
+  background-clip: padding-box;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  border: 1px solid #e1e4e8;
+  padding: 14px 16px;
+  color: #495057;
+  border-radius: 6px;
+  height: 52px;
+}
+
+.form .form-group .form-control:focus {
+  border-color: #286efa;
+}
+
+.form .form-group .form-control::-webkit-input-placeholder {
+  color: rgba(132, 146, 166, 0.7);
+  font-weight: 400;
+}
+
+.form .form-group .form-control::-moz-placeholder {
+  color: rgba(132, 146, 166, 0.7);
+  font-weight: 400;
+}
+
+.form .form-group .form-control:-ms-input-placeholder {
+  color: rgba(132, 146, 166, 0.7);
+  font-weight: 400;
+}
+
+.form .form-group .form-control:-moz-placeholder {
+  color: rgba(132, 146, 166, 0.7);
+  font-weight: 400;
+}

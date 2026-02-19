@@ -1,0 +1,23 @@
+<svg width="90px" height="64px" viewBox="0 0 90 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46 (44423) - http://www.bohemiancoding.com/sketch -->
+    <title>simple community bank</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Dashboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+        <g id="simple_community_bank" stroke-width="2.8" stroke="#FF6400">
+            <g id="Group-25" transform="translate(30.000000, 17.000000)">
+                <g id="business-24px-outline_bank-copy-5">
+                    <path d="M12.6818182,29.5909091 L12.6818182,12.6818182" id="Shape"></path>
+                    <path d="M18.3181818,12.6818182 L18.3181818,29.5909091" id="Shape"></path>
+                    <path d="M2.81818182,29.5909091 L2.81818182,12.6818182" id="Shape"></path>
+                    <path d="M8.45454545,12.6818182 L8.45454545,29.5909091" id="Shape"></path>
+                    <path d="M22.5454545,29.5909091 L22.5454545,12.6818182" id="Shape"></path>
+                    <path d="M28.1818182,12.6818182 L28.1818182,29.5909091" id="Shape"></path>
+                    <polygon id="Shape" points="15.5 0 0 8.45454545 0 12.6818182 31 12.6818182 31 8.45454545"></polygon>
+                    <path d="M0,29.5909091 L31,29.5909091" id="Shape"></path>
+                    <circle id="Oval" cx="15.5" cy="7.04545455" r="1.40909091"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

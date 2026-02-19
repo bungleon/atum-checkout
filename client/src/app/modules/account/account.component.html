@@ -1,0 +1,37 @@
+<app-page-title></app-page-title>
+<form (ngSubmit)="onSubmit()" #f="ngForm">
+    <div [loading]="loading" class="loading-pContent">
+        <div class="pContent">
+            <div style="padding: 1rem 1.5rem 0 1.5rem">
+                <app-next-flow></app-next-flow>
+            </div>
+            <div class="accountList pl-4 pr-4">
+                <div class="item" *ngFor="let item of accounts">
+                    <input type="radio" id="option-{{ item['id']}}" name="account" [(ngModel)]="accountId"
+                        value="{{ item['id'] }}">
+                    <label for="option-{{item['id']}}">
+                        <span>{{ item['label'] | beautifulEnum}}</span>
+                        <span class="amount">{{ item['amount'] }}
+                            <sup>{{item.currency}}</sup>
+                        </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pButton p-4">
+        <button class="btn btn-primary radiused btn-custom" type="submit"
+            [disabled]="f.invalid || this.loading || !this.accountId">
+            <span>{{ buttonValue }}</span>
+            <i></i>
+        </button>
+      <button
+        class="btn btn-link btn-sm text-muted"
+        style="font-size: 14px"
+        (click)="backToMerchant()"
+        type="button"
+      >
+        {{ cancelTransactionValue }}
+      </button>
+    </div>
+</form>

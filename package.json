@@ -1,0 +1,29 @@
+{
+  "name": "ngx-starter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bin/www",
+  "scripts": {
+    "dev": "npm install && concurrently --raw 'npm run locolise && cd server && npm install && cd .. && nodemon -r dotenv/config bin/www -w .env' 'cd client && npm install && npm run watch'",
+    "build": "npm install && npm run locolise && cd server && npm install && cd .. && cd client && npm install && npm run build",
+    "start": "node bin/www.js",
+    "debug": "node --inspect-brk bin/www.js",
+    "locolise": "node loco.js"
+  },
+  "author": "Fh Frontend Team",
+  "type": "module",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "ibantools": "^4.5.1",
+    "ngx-iban": "^18.0.1",
+    "ngx-starter-server": "file:server",
+    "node-fetch": "^3.3.2"
+  },
+  "engines": {
+    "node": "18.10.0"
+  },
+  "devDependencies": {
+    "concurrently": "^7.4.0",
+    "nodemon": "^3.0.1"
+  }
+}
