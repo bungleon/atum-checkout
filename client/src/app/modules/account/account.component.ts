@@ -109,7 +109,6 @@ export class AccountComponent implements OnInit, OnDestroy {
   }
 
   backToMerchant() {
-    debugger;
     const confirmModal = this.bsModalService.show(ConfirmModalComponent, {
       class: 'modal-dialog-centered modal-md modal-confirm',
       initialState: {

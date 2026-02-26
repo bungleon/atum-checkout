@@ -33,6 +33,8 @@ export class TransactionsService {
     );
   }
 
+
+
   getTransferDetail(id: string): Observable<any> {
     const url = `/ngx-giza/api/v1/engine/${id}/manual-transfer`;
     return this.http.get<any>(url);
@@ -95,4 +97,29 @@ export class TransactionsService {
     const url = `/ngx-giza/api/v1/engine/${id}/user-cancelled`;
     return this.http.get<any>(url);
   }
+
+  preTransactionInitialize(id: string): Observable<any> {
+    this.authService.flush();
+    this.storageService.flush('otpData');
+    const url = `/ngx-giza/api/v1/engine/${id}/pre-transaction`;
+    return this.http.get<any>(url).pipe(
+      map((res) => {
+        const transactionData = { id, ...res };
+        this.authService.auth = transactionData;
+        return transactionData;
+      })
+    );
+  }
+
+  getBanks(id: string): Observable<any> {
+    const url = `/ngx-giza/api/v1/engine/${id}/pre-transaction-get-banks`;
+    return this.http.get<any>(url);
+  }
+
+  setBank(id: string, params: any): Observable<any> {
+    debugger;
+    const url = `/ngx-giza/api/v1/engine/${id}/pre-transaction-set-bank`;
+    return this.http.post<any>(url, params);
+  }
+
 }

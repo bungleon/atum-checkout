@@ -5,9 +5,9 @@ import { finalize, take, takeUntil } from 'rxjs';
 import { StepService } from '@core/services/step-redirect.service';
 @Component({
   selector: 'app-init',
-  templateUrl: './init.component.html',
+  templateUrl: './init-pre-deposit.component.html',
 })
-export class InitComponent implements OnInit {
+export class InitPreDepositComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     public transactionsService: TransactionsService,
@@ -20,7 +20,7 @@ export class InitComponent implements OnInit {
     this.loading = true;
     this.transactionId = this.route.snapshot.params['id'];
     this.transactionsService
-      .transactionInitialize(this.transactionId)
+      .preTransactionInitialize(this.transactionId)
       .pipe(finalize(() => (this.loading = false)))
       .pipe(take(1))
       .subscribe((res) => this.stepService.redirect(res));

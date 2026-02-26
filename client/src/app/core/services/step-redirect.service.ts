@@ -22,7 +22,6 @@ export class StepService {
     private _ngZone: NgZone
   ) {}
   redirect(data: any) {
-    debugger;
     switch (data['nextStep']) {
       case 'LOGIN':
       case 'LOGIN_INPUTS':
@@ -130,6 +129,11 @@ export class StepService {
         this.stateService.data = data;
         this.router.navigate(['/payment-result'], {
           queryParams: { type: data['nextStep'] },
+        });
+        return true;
+      case 'BANK_SELECT':
+        this.router.navigate(['/select-bank'], {
+          queryParams: { timeout: data.timeout },
         });
         return true;
       case 'ERROR':

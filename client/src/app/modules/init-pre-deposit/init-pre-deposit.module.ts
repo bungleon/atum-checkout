@@ -3,10 +3,10 @@ import { SharedModule } from '@shared/shared.module';
 // routings
 import { RoutingModule } from './routing.module';
 // components
-import { InitComponent } from './init/init.component';
+import { InitPreDepositComponent } from './init/init-pre-deposit.component';
 
 @NgModule({
-  declarations: [InitComponent],
+  declarations: [InitPreDepositComponent],
   imports: [SharedModule, RoutingModule],
 })
-export class PublicModule {}
+export class InitPreDepositModule {}

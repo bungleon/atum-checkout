@@ -33,7 +33,6 @@ export class PaymentResultComponent implements OnInit {
   steps = paymentResultSteps;
 
   ngOnInit() {
-    debugger;
     this.type = this.route.snapshot.queryParams['type'];
     this.stateData = this.stateService.data;
     if (

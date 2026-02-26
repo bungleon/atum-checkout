@@ -41,6 +41,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'select-bank',
+    loadChildren: () =>
+      import('./modules/select-bank/select-bank.module').then(
+        (m) => m.SelectBankModule
+      ),
+  },
+  {
     path: 'mail-approve',
     loadChildren: () =>
       import('./modules/mail-approve/mail-approve.module').then(
@@ -48,9 +55,14 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'initialize/:id',
+    path: 'initialize-deposit/:id',
     loadChildren: () =>
-      import('./modules/public/public.module').then((m) => m.PublicModule),
+      import('@modules/init-deposit/init-deposit.module').then((m) => m.InitDepositModule),
+  },
+  {
+    path: 'initialize-pre-deposit/:id',
+    loadChildren: () =>
+      import('@modules/init-pre-deposit/init-pre-deposit.module').then((m) => m.InitPreDepositModule),
   },
   {
     path: '**',

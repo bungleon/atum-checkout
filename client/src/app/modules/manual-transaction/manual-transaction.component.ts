@@ -126,7 +126,6 @@ export class ManualTransactionComponent implements OnInit, OnDestroy {
   }
 
   cancelTransaction() {
-    debugger;
     this.loading = true;
     this.transactionsService
       .userCancelled(this.transactionData['id'])

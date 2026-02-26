@@ -3,8 +3,11 @@ export const routeConfig = {
   login: {
     title: 'Login',
   },
-  initialize: {
+  'initialize-deposit': {
     title: 'Transaction Initializing',
+  },
+  'initialize-pre-deposit': {
+    title: 'Pre Transaction Initializing',
   },
   otp: {
     title: 'Otp',
@@ -32,5 +35,8 @@ export const routeConfig = {
   },
   'mail-approve': {
     title: 'Mail Approve',
+  },
+  'select-bank': {
+    title: 'Select Bank',
   },
 };
