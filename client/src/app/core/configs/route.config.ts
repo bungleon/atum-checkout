@@ -39,4 +39,7 @@ export const routeConfig = {
   'select-bank': {
     title: 'Select Bank',
   },
+  'select-amount': {
+    title: 'Select Amount',
+  },
 };

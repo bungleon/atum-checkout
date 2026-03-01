@@ -48,6 +48,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'select-amount',
+    loadChildren: () =>
+      import('./modules/select-amount/select-amount.module').then(
+        (m) => m.SelectAmountModule
+      ),
+  },
+  {
     path: 'mail-approve',
     loadChildren: () =>
       import('./modules/mail-approve/mail-approve.module').then(

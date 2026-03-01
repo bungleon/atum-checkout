@@ -117,9 +117,23 @@ export class TransactionsService {
   }
 
   setBank(id: string, params: any): Observable<any> {
-    debugger;
     const url = `/ngx-giza/api/v1/engine/${id}/pre-transaction-set-bank`;
     return this.http.post<any>(url, params);
+  }
+
+  getAmounts(id: string): Observable<any> {
+    const url = `/ngx-giza/api/v1/engine/${id}/pre-transaction-get-amounts`;
+    return this.http.get<any>(url);
+  }
+
+  setAmount(id: string, params: any): Observable<any> {
+    const url = `/ngx-giza/api/v1/engine/${id}/pre-transaction-set-amount`;
+    return this.http.post<any>(url, params);
+  }
+
+  preTransactionUserCancelled(id: string): Observable<any> {
+    const url = `/ngx-giza/api/v1/engine/${id}/pre-transaction-user-cancelled`;
+    return this.http.get<any>(url);
   }
 
 }

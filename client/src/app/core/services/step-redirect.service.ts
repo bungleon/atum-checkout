@@ -136,6 +136,11 @@ export class StepService {
           queryParams: { timeout: data.timeout },
         });
         return true;
+      case 'AMOUNT_SELECT':
+        this.router.navigate(['/select-amount'], {
+          queryParams: { timeout: data.timeout },
+        });
+        return true;
       case 'ERROR':
       case 'DECLINED':
       case 'MANUAL_TRANSACTION_RESULT_DECLINED':

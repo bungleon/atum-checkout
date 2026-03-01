@@ -8,10 +8,10 @@ import {BsModalService} from "ngx-bootstrap/modal";
 
 @Component({
   selector: 'app-account',
-  templateUrl: './select-bank.component.html',
-  styleUrls: ['./select-bank.component.css'],
+  templateUrl: './select-amount.component.html',
+  styleUrls: ['./select-amount.component.css'],
 })
-export class SelectBankComponent implements OnInit, OnDestroy {
+export class SelectAmountComponent implements OnInit, OnDestroy {
   constructor(
     public transactionsService: TransactionsService,
     public stepService: StepService,
@@ -26,10 +26,10 @@ export class SelectBankComponent implements OnInit, OnDestroy {
   loading = false;
   transactionData = null;
   accountResponse = null;
-  banks = null;
+  amounts = null;
   buttonValue = null;
   cancelTransactionValue = null;
-  swiftCode = null;
+  id:bigint = null;
 
   ngOnInit() {
     this.loading = true;
@@ -41,16 +41,18 @@ export class SelectBankComponent implements OnInit, OnDestroy {
   }
 
   onLoad() {
+    debugger;
     const getStep$ = this.transactionsService.getStep(
       this.transactionData['id']
     );
-    const getAccount$ = this.transactionsService.getBanks(
+    const getAccount$ = this.transactionsService.getAmounts(
       this.transactionData['id']
     );
     getStep$
       .pipe(
         exhaustMap((res) => {
-          if (!this.stepService.isStep(res, 'BANK_SELECT')) {
+          debugger;
+          if (!this.stepService.isStep(res, 'AMOUNT_SELECT')) {
             return of(true);
           }
           return of(false);
@@ -58,6 +60,7 @@ export class SelectBankComponent implements OnInit, OnDestroy {
       )
       .pipe(
         exhaustMap((hasError) => {
+          debugger;
           if (hasError) {
             return of(false);
           }
@@ -68,11 +71,12 @@ export class SelectBankComponent implements OnInit, OnDestroy {
       .pipe(take(1))
       .subscribe((res) => {
         if (!res) {
+          debugger;
           return this.stepService.onStepError({...res, nextStep: 'ERROR'});
         }
         this.buttonValue =res.messages.continueButton;
         this.cancelTransactionValue =res.messages.cancelTransaction;
-        this.banks = res.banks;
+        this.amounts = res.amounts;
         this.accountResponse = res;
       });
   }
@@ -80,8 +84,8 @@ export class SelectBankComponent implements OnInit, OnDestroy {
   onSubmit(): void {
     this.loading = true;
     this.transactionsService
-      .setBank(this.transactionData['id'], {
-        swiftCode: this.swiftCode,
+      .setAmount(this.transactionData['id'], {
+        amountId: this.id,
       })
       .pipe(finalize(() => (this.loading = false)))
       .pipe(take(1))
@@ -89,12 +93,6 @@ export class SelectBankComponent implements OnInit, OnDestroy {
         if (this.stepService.isStep(res, 'ERROR')) {
           this.onError(res);
           return;
-        }
-        if (this.stepService.isStep(res, 'OTP')) {
-          this.otpService.setOtpData({
-            id: this.transactionData['id'],
-            ...res,
-          });
         }
         this.stepService.redirect(res);
       });
